@@ -4,3 +4,10 @@ services:
     build:
       context: .
       dockerfile: ApiGateway/Dockerfile
+
+  guestservice:
+    image: ${DOCKER_REGISTRY-}guestservice
+    build:
+      context: .
+      dockerfile: GuestService/Dockerfile
+
