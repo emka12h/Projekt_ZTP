@@ -11,3 +11,12 @@ services:
       context: .
       dockerfile: GuestService/Dockerfile
 
+  postgres-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: guestdb
+    ports:
+      - "5433:5432"
+
