@@ -10,6 +10,7 @@ services:
     build:
       context: .
       dockerfile: GuestService/Dockerfile
+   
 
   postgres-db:
     image: postgres:latest
