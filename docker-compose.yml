@@ -4,13 +4,40 @@ services:
     build:
       context: .
       dockerfile: ApiGateway/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000 
+    ports:
+      - "5000:5000"
+    depends_on:
+      - guestservice
+      - budgetservice
 
   guestservice:
     image: ${DOCKER_REGISTRY-}guestservice
     build:
       context: .
       dockerfile: GuestService/Dockerfile
-   
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5050
+    ports:
+      - "5050:5050"
+    depends_on:
+      - postgres-db
+
+  budgetservice:
+    image: ${DOCKER_REGISTRY-}budgetservice
+    build:
+      context: .
+      dockerfile: BudgetService/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5070
+    ports:
+    - "5070:5070"
+    depends_on:
+      - postgres-db
 
   postgres-db:
     image: postgres:latest

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 18
-VisualStudioVersion = 18.4.11612.150 stable
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37111.16 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wedding_planner", "wedding_planner\wedding_planner.csproj", "{354E2FB2-C8CD-45EA-9FE9-71C673367EB3}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuestService", "GuestService\GuestService.csproj", "{B04ADC5E-EC0B-478E-8C2E-22DC773DD4F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetService", "BudgetService\BudgetService.csproj", "{876E92C3-73D4-4A72-8E49-ECFE061B7722}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B04ADC5E-EC0B-478E-8C2E-22DC773DD4F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B04ADC5E-EC0B-478E-8C2E-22DC773DD4F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B04ADC5E-EC0B-478E-8C2E-22DC773DD4F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{876E92C3-73D4-4A72-8E49-ECFE061B7722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{876E92C3-73D4-4A72-8E49-ECFE061B7722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{876E92C3-73D4-4A72-8E49-ECFE061B7722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{876E92C3-73D4-4A72-8E49-ECFE061B7722}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
