@@ -13,7 +13,7 @@ Projekt stawia na nowoczesne, komercyjne standardy:
 * **Dokumentacja API:** Swagger / OpenAPI
 * **Infrastruktura & DevOps:** Docker, Docker Compose, konteneryzacja środowiska deweloperskiego
 
-## 🗺️ Roadmapa Projektu (Trello / Kanban)
+## 🗺️ Roadmapa Projektu (Trello)
 
 Projekt został podzielony na logiczne fazy i zadania (Karty), aby symulować pracę w metodyce zwinnej (Agile/Scrum).
 
