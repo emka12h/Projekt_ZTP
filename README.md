@@ -1,21 +1,21 @@
-# 💒 Wedding Planner - System Zarządzania Ślubem
+#  Wedding Planner - System Zarządzania Ślubem
 
 Kompleksowy system klasy zarządzania (Management System) ułatwiający organizację ślubu i wesela. Projekt budowany jest w architekturze **mikroserwisów**, co pozwala na niezależne skalowanie i rozwijanie poszczególnych modułów (np. listy gości, budżetu, harmonogramu).
 
 Obecnie rozwijany jest moduł **Budget Service** (Zarządzanie Budżetem).
 
-## 🚀 Technologie i Architektura
+##  Technologie i Architektura
 Projekt stawia na nowoczesne, komercyjne standardy:
 * **Backend:** C#, .NET 8 (lub nowszy), ASP.NET Core Web API
-* **Architektura:** Microservices, API Gateway (Wzorzec Gateway Routing)
+* **Architektura:** Microservices, API Gateway 
 * **Baza danych:** PostgreSQL (Relacyjna baza danych)
-* **ORM:** Entity Framework Core (Code-First)
+* **ORM:** Entity Framework Core 
 * **Dokumentacja API:** Swagger / OpenAPI
-* **Infrastruktura & DevOps:** Docker, Docker Compose, konteneryzacja środowiska deweloperskiego
+* **Infrastruktura & DevOps:** Docker, Docker Compose
 
-## 🗺️ Roadmapa Projektu (Trello)
+## Zadania (Trello)
 
-Projekt został podzielony na logiczne fazy i zadania (Karty), aby symulować pracę w metodyce zwinnej (Agile/Scrum).
+Projekt został podzielony na logiczne fazy i zadania (Karty).
 
 ### Faza 1: Architektura i Infrastruktura (Zakończona ✅)
 * [x] **Karta 1:** Inicjalizacja repozytorium i głównej solucji .NET.
