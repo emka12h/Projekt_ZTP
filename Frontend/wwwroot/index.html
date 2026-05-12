@@ -99,6 +99,100 @@
             <section id="view-guests" class="view">
                 <h1>Lista Gości</h1>
 
+                <div class="cards-wrapper">
+                    <div class="card summary-card">
+                        <h3>Wszyscy Zaproszeni</h3>
+                        <div id="guests-total" class="price">0</div>
+                        <p style="color: #7f8c8d; font-size: 0.9rem; margin-top: -10px;">Osoby na liście</p>
+
+                        <hr class="divider">
+
+                        <h4 class="category-title">Statusy RSVP</h4>
+                        <ul id="rsvp-stats-list" class="category-list">
+                            <li>Potwierdzili przybycie <span style="float: right; font-weight: bold; color: #27ae60;">0</span></li>
+                            <li>Odmówili <span style="float: right; font-weight: bold; color: #d63031;">0</span></li>
+                            <li>Oczekujący (Brak odp.) <span style="float: right; font-weight: bold; color: #f39c12;">0</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="card form-card">
+                        <h3>Dodaj Gościa</h3>
+                        <form id="add-guest-form">
+                            <div style="display: flex; gap: 15px;">
+                                <div class="form-group" style="flex: 1;">
+                                    <label for="guest-firstname">Imię</label>
+                                    <input type="text" id="guest-firstname" required placeholder="np. Michalina">
+                                </div>
+                                <div class="form-group" style="flex: 1;">
+                                    <label for="guest-lastname">Nazwisko</label>
+                                    <input type="text" id="guest-lastname" required placeholder="np. Kowalska">
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 15px;">
+                                <div class="form-group" style="flex: 1;">
+                                    <label for="guest-group">Grupa</label>
+                                    <select id="guest-group">
+                                        <option value="Family">Rodzina</option>
+                                        <option value="Friends">Znajomi</option>
+                                        <option value="Work">Praca</option>
+                                        <option value="VIP">VIP</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="flex: 1;">
+                                    <label for="guest-side">Strona</label>
+                                    <select id="guest-side">
+                                        <option value="Bride">Pani Młoda</option>
+                                        <option value="Groom">Pan Młody</option>
+                                        <option value="Shared">Wspólni</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 15px;">
+                                <div class="form-group" style="flex: 1;">
+                                    <label for="guest-rsvp">Status RSVP</label>
+                                    <select id="guest-rsvp">
+                                        <option value="Pending">Oczekuje</option>
+                                        <option value="Confirmed">Potwierdził(a)</option>
+                                        <option value="Declined">Odmówił(a)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="flex: 1;">
+                                    <label for="guest-meal">Preferencje Menu</label>
+                                    <select id="guest-meal">
+                                        <option value="Standard">Standardowe</option>
+                                        <option value="Vegetarian">Wegetariańskie</option>
+                                        <option value="Vegan">Wegańskie</option>
+                                        <option value="GlutenFree">Bezglutenowe</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-submit">Dodaj do listy</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card table-card">
+                    <h3>Twoi Goście</h3>
+                    <div class="table-responsive">
+                        <table class="expenses-table">
+                            <thead>
+                                <tr>
+                                    <th>Imię i Nazwisko</th>
+                                    <th>Grupa / Strona</th>
+                                    <th>Status RSVP</th>
+                                    <th>Preferencje Menu</th>
+                                    <th>Akcje</th>
+                                </tr>
+                            </thead>
+                            <tbody id="guests-list">
+                                <tr><td colspan="5" style="text-align: center;">Ładowanie listy gości...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </section>
             <!--Harmonogram-->
             <section id="view-harmonogram" class="view">

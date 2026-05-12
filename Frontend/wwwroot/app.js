@@ -172,5 +172,85 @@ function markAsPaid(id) {
         })
         .catch(error => console.error('Błąd:', error));
 }
+const DUMMY_WEDDING_ID = "00000000-0000-0000-0000-000000000001";
+
+document.getElementById('add-guest-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const newGuest = {
+        weddingId: DUMMY_WEDDING_ID, // Wymagane przez Twój C#
+        firstName: document.getElementById('guest-firstname').value,
+        lastName: document.getElementById('guest-lastname').value,
+        group: document.getElementById('guest-group').value,
+        side: document.getElementById('guest-side').value,
+        rsvpStatus: document.getElementById('guest-rsvp').value,
+        mealPreference: document.getElementById('guest-meal').value,
+        // Domyślne wartości dla reszty wymaganych pól
+        email: "", phoneNumber: "", hasPlusOne: false, isVip: false, needsAccommodation: false, needsTransport: false, checkedIn: false
+    };
+
+    fetch('http://localhost:5000/api/Guest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newGuest)
+    })
+        .then(response => {
+            if (response.ok) {
+                document.getElementById('add-guest-form').reset();
+                fetchGuestsList();
+            } else {
+                response.text().then(text => alert("Błąd API: " + text));
+            }
+        })
+        .catch(error => console.error('Błąd gości:', error));
+});
+
+function fetchGuestsList() {
+    fetch(`http://localhost:5000/api/Guest?weddingId=${DUMMY_WEDDING_ID}`)
+        .then(response => response.json())
+        .then(data => {
+            const tbody = document.getElementById('guests-list');
+            tbody.innerHTML = '';
+
+            let confirmed = 0, declined = 0, pending = 0;
+
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Brak gości na liście.</td></tr>';
+                document.getElementById('guests-total').innerText = "0";
+                return;
+            }
+
+            data.forEach(guest => {
+                // Zliczanie statusów
+                if (guest.rsvpStatus === "Confirmed") confirmed++;
+                else if (guest.rsvpStatus === "Declined") declined++;
+                else pending++;
+
+                // Tłumaczenia Enumów na polski
+                let rsvpText = "Oczekujący"; let rsvpColor = "#f39c12";
+                if (guest.rsvpStatus === "Confirmed") { rsvpText = "Potwierdził(a)"; rsvpColor = "#27ae60"; }
+                if (guest.rsvpStatus === "Declined") { rsvpText = "Odmówił(a)"; rsvpColor = "#d63031"; }
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${guest.firstName} ${guest.lastName}</strong></td>
+                    <td>${guest.side === "Bride" ? "Pani Młoda" : (guest.side === "Groom" ? "Pan Młody" : "Wspólni")} / ${guest.group}</td>
+                    <td><span class="status-badge" style="background: transparent; border: 1px solid ${rsvpColor}; color: ${rsvpColor}">${rsvpText}</span></td>
+                    <td>${guest.mealPreference}</td>
+                    <td><button type="button" class="btn-action">Usuń</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Wstrzyknięcie statystyk
+            document.getElementById('guests-total').innerText = data.length;
+            document.getElementById('rsvp-stats-list').innerHTML = `
+                <li>Potwierdzili przybycie <span style="color: #27ae60;">${confirmed}</span></li>
+                <li>Odmówili <span style="color: #d63031;">${declined}</span></li>
+                <li>Oczekujący (Brak odp.) <span style="color: #f39c12;">${pending}</span></li>
+            `;
+        })
+        .catch(error => console.error('Błąd pobierania gości:', error));
+}
 
 fetchExpensesList();
