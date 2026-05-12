@@ -1,0 +1,279 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+body {
+    background-color: #FBF8F5;
+    color: #4A3A31;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- MENU BOCZNE --- */
+.sidebar {
+    width: 250px;
+    background-color: #C3ADA4;
+    color: #ffffff;
+    padding: 20px;
+}
+
+    .sidebar h2 {
+        margin-bottom: 30px;
+        font-size: 24px;
+        border-bottom: 1px solid #d4c1ba;
+        padding-bottom: 10px;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    .sidebar ul {
+        list-style: none;
+    }
+
+        .sidebar ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+            font-size: 18px;
+            transition: 0.3s;
+            opacity: 0.8;
+        }
+
+            .sidebar ul li a:hover, .sidebar ul li a.active {
+                opacity: 1;
+                font-weight: bold;
+                padding-left: 5px;
+            }
+
+.logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+    .logo-container img {
+        max-width: 100%;
+        height: auto;
+        max-height: 140px;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+
+/* --- GŁÓWNA ZAWARTOŚĆ --- */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    width: calc(100% - 250px);
+}
+
+    .main-content h1 {
+        margin-bottom: 30px;
+        font-weight: normal;
+        color: #4A3A31;
+    }
+
+/* --- PROPORCJE 50/50 GÓRNYCH KAFELKÓW --- */
+.cards-wrapper {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+}
+
+.summary-card, .form-card {
+    flex: 1;
+    min-width: 0; 
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(74, 58, 49, 0.05);
+}
+
+    .card h3 {
+        color: #C3ADA4;
+        font-size: 16px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+.price {
+    font-size: 32px;
+    color: #4A3A31;
+}
+
+/* --- LISTA KATEGORII --- */
+.divider {
+    border: 0;
+    border-top: 1px solid #e0d5d0;
+    margin: 25px 0 15px 0;
+}
+
+.category-title {
+    color: #C3ADA4;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.category-list {
+    list-style: none;
+}
+
+    .category-list li {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px dashed #f0e9e6;
+        font-size: 15px;
+        color: #4A3A31;
+    }
+
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+
+    .category-list span {
+        font-weight: bold;
+        color: #2c3e50;
+    }
+
+/* --- FORMULARZ --- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+        color: #4A3A31;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #e0d5d0;
+        border-radius: 4px;
+        font-family: inherit;
+    }
+
+.btn-submit {
+    background-color: #4A3A31;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    width: 100%;
+}
+
+    .btn-submit:hover {
+        background-color: #634f43;
+    }
+
+/* --- TABELA WYDATKÓW --- */
+.table-card {
+    width: 100%;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.expenses-table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+}
+
+    .expenses-table th,
+    .expenses-table td {
+        padding: 16px 20px;
+        text-align: left;
+        border-bottom: 1px solid #e0d5d0;
+        white-space: nowrap;
+        color: #4A3A31;
+        vertical-align: middle;
+    }
+
+    .expenses-table th {
+        background-color: #FBF8F5;
+        color: #C3ADA4;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .expenses-table tbody tr:hover {
+        background-color: #fdfcfb;
+    }
+
+    .expenses-table td:nth-child(5) {
+        white-space: normal;
+        min-width: 150px;
+    }
+
+/* --- KAFELKI STATUSU --- */
+.status-badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.status-unpaid {
+    background-color: #ffeaea;
+    color: #d63031;
+}
+
+.status-paid {
+    background-color: #eafaf1;
+    color: #27ae60;
+}
+
+/* --- PRZYCISK ZAPŁAĆ --- */
+.btn-action {
+    background-color: transparent;
+    border: 1px solid #C3ADA4;
+    color: #4A3A31;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+    .btn-action:hover {
+        background-color: #C3ADA4;
+        color: white;
+    }
+
+/* --- MECHANIZM PRZEŁĄCZANIA WIDOKÓW --- */
+.view {
+    display: none; /* Ukrywamy wszystkie sekcje */
+}
+
+    .view.active {
+        display: block; /* Pokazujemy tylko aktywną */
+    }
