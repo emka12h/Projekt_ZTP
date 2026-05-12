@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E&M Wedding Planner</title>
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!--Menu boczne-->
+        <nav class="sidebar">
+            <div class="logo-container">
+                <img src="pictures/logo.png" alt="Logo">
+            </div>
+            <h2>E&M Planner</h2>
+            <ul>
+                <li><a href="#" class="active">Budżet</a></li>
+                <li><a href="#">Goście</a></li>
+                <li><a href="#">Harmonogram</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <!--Budżet-->
+            <section id="view-budget" class="view active">
+                <h1>Zarządzanie Budżetem</h1>
+
+                <div class="cards-wrapper">
+                    <div class="card summary-card">
+                        <h3>Całkowity koszt</h3>
+                        <div id="total-cost" class="price">Ładowanie...</div>
+
+                        <hr class="divider">
+
+                        <h4 class="category-title">Wydatki w kategoriach</h4>
+                        <ul id="category-list" class="category-list">
+                            <li>Ładowanie...</li>
+                        </ul>
+                    </div>
+
+                    <div class="card form-card">
+                        <h3>Dodaj nowy wydatek</h3>
+                        <form id="add-expense-form">
+                            <div class="form-group">
+                                <label for="expense-name">Za co płacimy?</label>
+                                <input type="text" id="expense-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="expense-amount">Kwota (zł)</label>
+                                <input type="number" id="expense-amount" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="expense-category">Kategoria</label>
+                                <select id="expense-category">
+                                    <option value="Sala i Catering">Sala i Catering</option>
+                                    <option value="Zdjęcia i Wideo">Zdjęcia i Wideo</option>
+                                    <option value="Oprawa muzyczna">Oprawa muzyczna</option>
+                                    <option value="Stroje">Stroje</option>
+                                    <option value="Inne">Inne</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="expense-date">Data płatności</label>
+                                <input type="date" id="expense-date">
+                            </div>
+                            <div class="form-group">
+                                <label for="expense-notes">Notatki (opcjonalnie)</label>
+                                <textarea id="expense-notes" rows="2"></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">Zapisz wydatek</button>
+                        </form>
+                    </div>
+                </div>
+>
+                <div class="card table-card">
+                    <h3>Historia Wydatków</h3>
+                    <div class="table-responsive">
+                        <table class="expenses-table">
+                            <thead>
+                                <tr>
+                                    <th>Nazwa</th>
+                                    <th>Kategoria</th>
+                                    <th>Data płatności</th>
+                                    <th>Kwota</th>
+                                    <th>Notatki</th>
+                                    <th>Status</th>
+                                    <th>Akcje</th>
+                                </tr>
+                            </thead>
+                            <tbody id="expenses-list">
+                                <tr><td colspan="7" style="text-align: center;">Ładowanie wydatków...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <!--Lista gości-->
+            <section id="view-guests" class="view">
+                <h1>Lista Gości</h1>
+
+            </section>
+            <!--Harmonogram-->
+            <section id="view-harmonogram" class="view">
+                <h1>Harmonogram Wesela</h1>
+
+            </section> 
+        </main>
+    </div>
+
+    <!-- Podłączenie pliku z logiką -->
+    <script src="app.js"></script>
+</body>
+</html>
